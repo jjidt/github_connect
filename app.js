@@ -1,4 +1,5 @@
 var express = require('express'),
+    app = express(),
     path = require('path'),
     favicon = require('serve-favicon'),
     logger = require('morgan'),
@@ -6,8 +7,6 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     routes = require('./routes/index'),
     users = require('./routes/users');
-
-var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -54,6 +53,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;

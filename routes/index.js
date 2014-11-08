@@ -8,18 +8,22 @@ router.get('/', function(req, res) {
 });
 
 router.get('/portland', function(req, res) {
-	// var options = {
- //  		hostname: 'api.github.com',
- //  		port: 443,
- //  		path: '/search/users?q=repos%3A1+location%3Aportland&per_page=100&page=4',
- //  		method: 'GET'
-	// };
+	var options = {
+  		hostname: 'api.github.com',
+  		path: '/search/users?q=repos%3A1+location%3Aportland&per_page=100&page=4',
+  		method: 'GET',
+  		headers: {
+  			"User-Agent": "github_connect"
+  		}
+	};
 
-	// https.request(options, function(result) {
-	// 	console.log(result);
-	// });
-	
-	res.send("BLAHALALA");
+	var req = https.request(options, function(response) {
+		response.on('data', function(d) {
+    		data = d;
+  		});
+	});
+	req.end();
+	// res.send("BLAHALALA");
 });
 
 module.exports = router;
