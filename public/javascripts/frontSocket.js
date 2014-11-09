@@ -1,4 +1,4 @@
-define(['io'], function (io) {
+define(['socketio'], function (io) {
 	var socket = io.connect('http://localhost');
 	socket.on('news', function (data) {
 		
