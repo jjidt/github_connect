@@ -3,11 +3,11 @@ define(['socketio', 'jquery'], function (io, $) {
 		contentContainer;
 	socket.on('news', function (data) {
 		contentContainer = $('.content');
-		data = JSON.stringify(data);
-		window.data = JSON.parse(data);
-		// data.forEach(function(result) {
-		// 	contentContainer.append('<img src=' + result.avatar_url + '/>')
-		// });
+		window.data = data;
+		data.items.forEach(function(result) {
+			console.log(result);
+			contentContainer.append('<p><img width="50px" src=' + result.avatar_url + '/></p>')
+		});
 		socket.emit('my other event', { data: 'passed from the client' });
 	});
 });
