@@ -5,9 +5,13 @@ define(['socketio', 'jquery'], function (io, $) {
 		contentContainer = $('.content');
 		window.data = data;
 		data.items.forEach(function(result) {
-			console.log(result);
-			contentContainer.append('<p><img width="50px" src=' + result.avatar_url + '/>' + result.login + '</p>')
+		console.log(result);
+			contentContainer.append('<p><img class="user-image" width="50px" src=' + result.avatar_url + ' id=' + result.url + '/>' + result.login + '</p>')
 		});
-		socket.emit('my other event', { data: 'passed from the client' });
+		$('.user-image').on('click', function(){
+			var url = $(this).attr('id');
+			console.log(url);
+			socket.emit('userSelect', "Blah Blah Blah");
+		});
 	});
 });
