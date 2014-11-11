@@ -1,6 +1,8 @@
+@import url(http://fonts.googleapis.com/css?family=Nunito:300);
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 20px;
+  font: 14px "Nunito", "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
